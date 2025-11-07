@@ -1,0 +1,13 @@
+name: crispr_carT_env
+dependencies:
+  - python=3.10
+  - scanpy
+  - scikit-learn
+  - tensorflow
+  - seaborn
+  - matplotlib
+  - pandas
+  - numpy
+  - gseapy
+  - jupyterlab
+
