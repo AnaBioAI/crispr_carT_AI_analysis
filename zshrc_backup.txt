@@ -56,13 +56,13 @@ openlab='conda deactivate >/dev/null 2>&1; cd ~/Documents && echo "\033[1;34m�
 
 # ---- Backup .zshrc to project and push to GitHub ----
 zshbackup() {
+  local SRC=~/.zshrc
   local PROJ=~/Desktop/crispr_carT_AI_analysis
-  cp ~/.zshrc "$PROJ/zshrc_backup.txt" \
-    && echo "[zshbackup] Copied .zshrc → zshrc_backup.txt"
-
-  ( cd "$PROJ" \
-    && git add zshrc_backup.txt \
-    && git commit -m "zshrc backup: $(date '+%Y-%m-%d %H:%M:%S')" \
-    && git push && echo "[zshbackup] Pushed to GitHub ✅" ) \
-  || echo "[zshbackup] Something went wrong ❗"
+  local DEST="$PROJ/zshrc_backup.txt"
+  echo "[zshbackup] Copying .zshrc to $DEST..."
+  cp "$SRC" "$DEST" || { echo "[zshbackup] Copy failed ❗"; return 1; }
+  cd "$PROJ" || return
+  git add zshrc_backup.txt
+  git commit -m "Automated .zshrc backup ($(date '+%Y-%m-%d %H:%M'))" >/dev/null 2>&1 || echo "[zshbackup] Nothing new to commit."
+  git push >/dev/null 2>&1 && echo "[zshbackup] ✅ Backup pushed successfully." || echo "[zshbackup] ⚠️ Push skipped (no network or auth issue)."
 }
