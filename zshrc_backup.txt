@@ -1,0 +1,56 @@
+export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
+alias jl='jupyter-lab --no-browser & open http://127.0.0.1:8888/lab'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/acastano/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/acastano/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/acastano/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/acastano/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias checkwordaddons='find ~/Library /Library -type d \( -name "Startup" -o -name "Add-ins" \) -exec echo "===> {}" \; -exec ls "{}" \; 2>/dev/null'
+
+
+alias stoplab='conda deactivate && echo "\033[1;31m🧠 Environment deactivated — systems clean.\033[0m"'
+alias labstatus='if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then echo "\033[1;32m🧬 CRISPR CAR-T AI environment active.\033[0m"; elif [[ -n "$CONDA_DEFAULT_ENV" ]]; then echo "\033[1;33m⚗️  Other conda environment active: $CONDA_DEFAULT_ENV\033[0m"; else echo "\033[1;34m🌿 No conda environment active.\033[0m"; fi'
+# --- Conda environment indicator in prompt ---
+autoload -U colors && colors
+precmd() {
+  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+    if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then
+      PS1="%F{green}🧬 ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+    else
+      PS1="%F{yellow}⚗️ ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+    fi
+  else
+    PS1="%F{blue}🌿 (base)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+  fi
+
+# --- Fancy AI Terminal Prompt with Time ---
+autoload -U colors && colors
+precmd() {
+  local TIME="%F{magenta}[%D{%H:%M}]%f"  # 24h clock in magenta
+  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+    if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then
+      PS1="$TIME %F{green}🧬 ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+    else
+      PS1="$TIME %F{yellow}⚗️ ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+    fi
+  else
+    PS1="$TIME %F{blue}🌿 (base)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
+  fi
+}}
+
+alias startlab='conda activate crispr_carT_env && cd ~/Desktop/crispr_carT_AI_analysis && echo "\033[1;32m🚀 CRISPR CAR-T AI environment activated — JupyterLab launching...\033[0m" && jupyter lab'
+openlab='conda deactivate >/dev/null 2>&1; cd ~/Documents && echo "\033[1;34m📘 Opening vanilla JupyterLab in Documents...\033[0m" && jupyter lab'
+
