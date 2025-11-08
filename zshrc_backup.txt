@@ -1,5 +1,4 @@
 export PATH="/opt/homebrew/bin:$PATH"
-
 export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
 alias jl='jupyter-lab --no-browser & open http://127.0.0.1:8888/lab'
 
@@ -24,18 +23,6 @@ alias checkwordaddons='find ~/Library /Library -type d \( -name "Startup" -o -na
 alias stoplab=$'conda deactivate && echo "\\033[1;31m🧠 Environment deactivated — systems clean. Running backup...\\033[0m" && zshbackup && echo "\\033[1;32m✅ Backup complete.\\033[0m"'
 alias labstatus='if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then echo "\033[1;32m🧬 CRISPR CAR-T AI environment active.\033[0m"; elif [[ -n "$CONDA_DEFAULT_ENV" ]]; then echo "\033[1;33m⚗️  Other conda environment active: $CONDA_DEFAULT_ENV\033[0m"; else echo "\033[1;34m🌿 No conda environment active.\033[0m"; fi'
 # --- Conda environment indicator in prompt ---
-autoload -U colors && colors
-precmd() {
-  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
-    if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then
-      PS1="%F{green}🧬 ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
-    else
-      PS1="%F{yellow}⚗️ ($CONDA_DEFAULT_ENV)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
-    fi
-  else
-    PS1="%F{blue}🌿 (base)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
-  fi
-
 # --- Fancy AI Terminal Prompt with Time ---
 autoload -U colors && colors
 precmd() {
@@ -49,7 +36,7 @@ precmd() {
   else
     PS1="$TIME %F{blue}🌿 (base)%f %F{cyan}%n@%m%f %F{yellow}%~%f %# "
   fi
-}}
+}
 
 alias startlab='conda activate crispr_carT_env && cd ~/Desktop/crispr_carT_AI_analysis && echo "\033[1;32m🚀 CRISPR CAR-T AI environment activated — JupyterLab launching...\033[0m" && jupyter lab'
 openlab='conda deactivate >/dev/null 2>&1; cd ~/Documents && echo "\033[1;34m📘 Opening vanilla JupyterLab in Documents...\033[0m" && jupyter lab'
@@ -66,3 +53,17 @@ zshbackup() {
   git commit -m "Automated .zshrc backup ($(date '+%Y-%m-%d %H:%M'))" >/dev/null 2>&1 || echo "[zshbackup] Nothing new to commit."
   git push >/dev/null 2>&1 && echo "[zshbackup] ✅ Backup pushed successfully." || echo "[zshbackup] ⚠️ Push skipped (no network or auth issue)."
 }
+# 🧬 Fancy Lab Dashboard on Terminal startup
+PROJECT_MEMORY="$HOME/Desktop/crispr_carT_AI_analysis/PROJECT_MEMORY.md"
+
+if [ -f "$PROJECT_MEMORY" ]; then
+  echo ""
+  echo "\033[1;36m───────────────────────────────────────────────\033[0m"
+  echo "\033[1;32m🧪  Welcome back, Ana — CRISPR CAR-T AI console ready!\033[0m"
+  echo "\033[1;36m───────────────────────────────────────────────\033[0m"
+  echo "\033[0;33mProject summary:\033[0m"
+  awk 'NR<=12' "$PROJECT_MEMORY"
+  echo "\033[1;36m───────────────────────────────────────────────\033[0m"
+  echo "\033[0;34mType 'startlab' to launch your workspace 🚀\033[0m"
+  echo ""
+fi
