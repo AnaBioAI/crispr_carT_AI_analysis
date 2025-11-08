@@ -1,3 +1,36 @@
+
+# ================================
+# 🧬 Ana’s Terminal Alias Reference
+# Date: November 2025
+# Purpose: Streamlined environment control and project access for AI & CRISPR work
+# ================================
+
+# 🔬 startlab
+# Activates the 'crispr_carT_env' conda environment,
+# moves to the CRISPR CAR-T AI analysis directory,
+# and launches JupyterLab in project context.
+
+# 📘 openlab
+# Opens JupyterLab in ~/Documents using the base environment.
+# Safe “vanilla” environment, no project dependencies loaded.
+
+# 🧠 labstatus
+# Displays which conda environment (if any) is active
+# using color-coded terminal feedback.
+
+# 🧹 stoplab
+# Deactivates the current conda environment and prints a confirmation message.
+
+# ⚗️ jl
+# Alternative quick-launch for JupyterLab without browser auto-open.
+# Good for remote or background runs.
+jl='jupyter-lab --no-browser & open http://127.0.0.1:8888/lab'
+labstatus=$'if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then echo "\\033[1;32m\U0001f9ec CRISPR CAR-T AI environment active.\\033[0m"; elif [[ -n "$CONDA_DEFAULT_ENV" ]]; then echo "\\033[1;33m⚗️  Other conda environment active: $CONDA_DEFAULT_ENV\\033[0m"; else echo "\\033[1;34m🌿 No conda environment active.\\033[0m"; fi'
+openlab='conda deactivate >/dev/null 2>&1; cd ~/Documents && echo "\033[1;34m📘 Opening vanilla JupyterLab in Documents...\033[0m" && jupyter lab'
+startlab='conda activate crispr_carT_env && cd ~/Desktop/crispr_carT_AI_analysis && echo "\033[1;32m🚀 CRISPR CAR-T AI environment activated — JupyterLab launching...\033[0m" && jupyter lab'
+stoplab=$'conda deactivate && echo "\\033[1;31m\U0001f9e0 Environment deactivated — systems clean.\\033[0m"'
+
+
 export PATH="/opt/homebrew/bin:$PATH"
 
 export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:$PATH"
@@ -53,4 +86,18 @@ precmd() {
 
 alias startlab='conda activate crispr_carT_env && cd ~/Desktop/crispr_carT_AI_analysis && echo "\033[1;32m🚀 CRISPR CAR-T AI environment activated — JupyterLab launching...\033[0m" && jupyter lab'
 openlab='conda deactivate >/dev/null 2>&1; cd ~/Documents && echo "\033[1;34m📘 Opening vanilla JupyterLab in Documents...\033[0m" && jupyter lab'
+# ================================
+# 💾 Quick Restore Instructions
+# ================================
+# To restore this setup on a new computer:
+# 1. Copy this file to your home directory:
+#      cp ~/Desktop/crispr_carT_AI_analysis/zshrc_backup.txt ~/.zshrc
+# 2. Reload shell configuration:
+#      source ~/.zshrc
+# 3. Verify with:
+#      labstatus
+#
+# 🧭 To sync updates back to GitHub:
+#      cd ~/Desktop/crispr_carT_AI_analysis
+#      git pull origin main
 
