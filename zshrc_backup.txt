@@ -21,7 +21,7 @@ unset __conda_setup
 alias checkwordaddons='find ~/Library /Library -type d \( -name "Startup" -o -name "Add-ins" \) -exec echo "===> {}" \; -exec ls "{}" \; 2>/dev/null'
 
 
-alias stoplab='conda deactivate && echo "\033[1;31m🧠 Environment deactivated — systems clean.\033[0m"'
+alias stoplab=$'conda deactivate && echo "\\033[1;31m🧠 Environment deactivated — systems clean. Running backup...\\033[0m" && zshbackup && echo "\\033[1;32m✅ Backup complete.\\033[0m"'
 alias labstatus='if [[ "$CONDA_DEFAULT_ENV" == "crispr_carT_env" ]]; then echo "\033[1;32m🧬 CRISPR CAR-T AI environment active.\033[0m"; elif [[ -n "$CONDA_DEFAULT_ENV" ]]; then echo "\033[1;33m⚗️  Other conda environment active: $CONDA_DEFAULT_ENV\033[0m"; else echo "\033[1;34m🌿 No conda environment active.\033[0m"; fi'
 # --- Conda environment indicator in prompt ---
 autoload -U colors && colors
