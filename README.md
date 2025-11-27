@@ -1,4 +1,4 @@
-# Systematic Discovery of CRISPR-Boosted CAR-T Cell Immunotherapies — Reproduction & Extension
+# Systematic discovery of CRISPR-boosted CAR T cell immunotherapies — Reproduction & Extension
 
 This repository reproduces and extends the analysis from *Seki et al., Nature 2023*, integrating CRISPR functional genomics and single-cell RNA-seq to explore CAR-T activation mechanisms.
 
