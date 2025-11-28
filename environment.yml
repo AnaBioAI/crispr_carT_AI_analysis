@@ -1,4 +1,20 @@
 name: crispr_carT_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - scanpy
+  - scikit-learn
+  - tensorflow
+  - seaborn
+  - matplotlib
+  - pandas
+  - numpy
+  - jupyterlab
+  - pip
+  - pip:
+      - gseapy
+name: crispr_carT_env
 dependencies:
   - python=3.10
   - scanpy
