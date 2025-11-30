@@ -1,0 +1,17 @@
+{
+  "paths": {
+    "raw_counts": "data/raw/GSE266618_counts.csv",
+    "series_matrix": "data/raw/GSE266618_series_matrix.txt",
+    "processed_dir": "data/processed",
+    "results_dir": "results"
+  },
+  "metadata": {
+    "time_column": "hours",
+    "guide_column": "guide",
+    "donor_column": "donor"
+  },
+  "pca": {
+    "n_components": 5,
+    "n_hvg_genes": 3000
+  }
+}
