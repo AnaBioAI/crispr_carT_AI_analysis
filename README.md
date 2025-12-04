@@ -14,3 +14,15 @@ Python, Scanpy, Scikit-learn, TensorFlow, Seaborn, gseapy, JupyterLab.
 ## Author
 **Ana Castano, M.D.**  
 Translational Immunologist & AI Researcher
+### Module D – PCA interpretability
+
+Notebooks:
+- `notebooks/Notebooks03_pca_analysis/03_pca_analysis.ipynb`
+
+Core code:
+- `analysis_utils/pca_utils.py`
+
+Outputs:
+- `results/pca/pca_scores.csv` – sample-level PC coordinates (+ quadrants on PC5/PC6)
+- `results/pca/pca_loadings.csv` – gene-level loadings for each PC
+- `results/pca/pca_explained_variance.csv` – variance explained per PC
