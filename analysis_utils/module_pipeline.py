@@ -158,3 +158,9 @@ def build_module_trajectory_table():
     print(f"Saved enriched trajectory table → {outpath}")
     return df
 
+#Copy the code below in the notebook
+#from utils.module_pipeline import build_module_trajectory_table
+
+#df_traj = build_module_trajectory_table()
+#df_traj.head()
+
