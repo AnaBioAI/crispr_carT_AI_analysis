@@ -26,3 +26,20 @@ Outputs:
 - `results/pca/pca_scores.csv` – sample-level PC coordinates (+ quadrants on PC5/PC6)
 - `results/pca/pca_loadings.csv` – gene-level loadings for each PC
 - `results/pca/pca_explained_variance.csv` – variance explained per PC
+### Quick workflow
+
+```bash
+conda activate crispr_carT_env
+cartlab                # jump to project root
+make modules           # recompute module scores + trajectories
+gcsave "Update module pipeline results"
+
+That turns your CRISPR CAR-T analysis from “fragile notebook magic” into a real, reproducible pipeline with:
+
+- A smarter shell
+- Git guardrails
+- Data-size sanity checks
+- LFS for big binary outputs
+- A Makefile to standardize how you run things
+
+That’s pretty close to a 5-star computational lab. Next upgrade tier is when we start wiring CI (GitHub Actions) to auto-run unit tests on your utils and maybe generate nightly plots of CAR-T effector vs regulatory drifts.
