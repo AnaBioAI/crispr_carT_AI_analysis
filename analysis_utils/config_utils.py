@@ -18,3 +18,11 @@ def load_config(config_path=None):
         cfg = json.load(f)
 
     return cfg
+
+import json
+import os
+
+def load_gene_sets(path="data/gene_sets/gene_sets.json"):
+    with open(path, "r") as f:
+        return json.load(f)
+
