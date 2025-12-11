@@ -37,6 +37,11 @@ def load_gene_sets(path=None):
 from pathlib import Path
 
 # Path to project root:
+# analysis_utils/config_utils.py
+
+from pathlib import Path
+
+# Path to project root (this file lives inside <root>/analysis_utils/)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_DIR = PROJECT_ROOT / "data"
@@ -53,5 +58,3 @@ SCRIPTS_DIR = PROJECT_ROOT / "scripts"
 def ensure_dirs(*paths):
     for p in paths:
         p.mkdir(parents=True, exist_ok=True)
-
-
