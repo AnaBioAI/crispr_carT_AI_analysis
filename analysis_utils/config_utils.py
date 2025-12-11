@@ -32,4 +32,26 @@ def load_gene_sets(path=None):
 
     return gene_sets
 
+# analysis_utils/config_utils.py
+
+from pathlib import Path
+
+# Path to project root:
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+DATA_DIR = PROJECT_ROOT / "data"
+PROCESSED_DIR = DATA_DIR / "processed"
+RAW_DIR = DATA_DIR / "raw"
+
+RESULTS_DIR = PROJECT_ROOT / "results"
+PCA_RESULTS_DIR = RESULTS_DIR / "pca"
+MODULE_RESULTS_DIR = RESULTS_DIR / "modules"
+
+NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+
+def ensure_dirs(*paths):
+    for p in paths:
+        p.mkdir(parents=True, exist_ok=True)
+
 
