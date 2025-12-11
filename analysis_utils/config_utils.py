@@ -62,3 +62,4 @@ def ensure_dirs(*paths):
     """Create directories if they don't exist."""
     for p in paths:
         Path(p).mkdir(parents=True, exist_ok=True)
+ 
