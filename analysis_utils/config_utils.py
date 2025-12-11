@@ -1,8 +1,33 @@
+# analysis_utils/config_utils.py
+
 import os
 import json
+from pathlib import Path
 
+# ---------------------------------------------------------------------
 # Base directory of the project (folder that contains analysis_utils, data, results, etc.)
+# ---------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Pathlib-style project root
+PROJECT_ROOT = Path(BASE_DIR)
+
+# Core data directories
+DATA_DIR = PROJECT_ROOT / "data"
+PROCESSED_DIR = DATA_DIR / "processed"
+RAW_DIR = DATA_DIR / "raw"  # use later if needed
+
+# Results directories
+RESULTS_DIR = PROJECT_ROOT / "results"
+PCA_RESULTS_DIR = RESULTS_DIR / "pca"
+MODULE_RESULTS_DIR = RESULTS_DIR / "modules"
+
+NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+
+# ---------------------------------------------------------------------
+# Gene set utilities
+# ---------------------------------------------------------------------
 DEFAULT_GENE_SET_PATH = os.path.join(BASE_DIR, "data", "gene_sets", "gene_sets.json")
 
 
@@ -32,29 +57,8 @@ def load_gene_sets(path=None):
 
     return gene_sets
 
-# analysis_utils/config_utils.py
-
-from pathlib import Path
-
-# Path to project root:
-# analysis_utils/config_utils.py
-
-from pathlib import Path
-
-# Path to project root (this file lives inside <root>/analysis_utils/)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-DATA_DIR = PROJECT_ROOT / "data"
-PROCESSED_DIR = DATA_DIR / "processed"
-RAW_DIR = DATA_DIR / "raw"
-
-RESULTS_DIR = PROJECT_ROOT / "results"
-PCA_RESULTS_DIR = RESULTS_DIR / "pca"
-MODULE_RESULTS_DIR = RESULTS_DIR / "modules"
-
-NOTEBOOKS_DIR = PROJECT_ROOT / "notebooks"
-SCRIPTS_DIR = PROJECT_ROOT / "scripts"
 
 def ensure_dirs(*paths):
+    """Create directories if they don't exist."""
     for p in paths:
-        p.mkdir(parents=True, exist_ok=True)
+        Path(p).mkdir(parents=True, exist_ok=True)
