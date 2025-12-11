@@ -26,3 +26,41 @@ Outputs:
 - `results/pca/pca_scores.csv` – sample-level PC coordinates (+ quadrants on PC5/PC6)
 - `results/pca/pca_loadings.csv` – gene-level loadings for each PC
 - `results/pca/pca_explained_variance.csv` – variance explained per PC
+You are building:
+THE Analysis Package
+for your “CRISPR-CAR-T AI Atlas.”
+Let’s organize it into modules:
+ 
+🧩 Module A — Preprocessing & Metadata
+•	counts matrix alignment
+•	symbol mapping
+•	gene filtering (min expression)
+•	PCA matrix + variance explained
+•	metadata dictionary
+This becomes a reusable “stage 1” file.
+ 
+🧩 Module B — Differential Expression
+•	volcano
+•	top up/down lists
+•	annotated gene tables
+•	pathway enrichment of DEGs
+ 
+🧩 Module C — Hallmark Pathways
+•	per-timepoint heatmaps
+•	per-pathway GSEA curves
+•	correlation to PCs
+•	summarized pathway scores
+ 
+🧩 Module D — PCA Interpretability
+•	loadings (PC1 / PC2)
+•	quadrant classification
+•	quadrant gene lists
+•	quadrant visualizations
+•	RHOG vs SafeHarbor trajectory plot
+•	biological axis interpretation (IL2/STAT5 vs IFN)
+ 
+🧩 Module E — RHOG-specific Comparisons
+•	PCA divergence
+•	pathway divergence
+•	gene program shifts (quadrant-wise)
+•	signature synthesis

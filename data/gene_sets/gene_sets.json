@@ -1,0 +1,39 @@
+{
+  "effector_cytotoxic": [
+    "PRF1", "GZMB", "GZMA", "GNLY", "NKG7",
+    "IFNG", "TNF", "CD8A", "CD8B", "KLRD1", "CX3CR1"
+  ],
+
+  "activation_early": [
+    "JUN", "FOS", "FOSB", "EGR1", "EGR2", "CD69", "IRF1", "IFIT1"
+  ],
+
+  "exhaustion_checkpoint": [
+    "PDCD1", "CTLA4", "TIGIT", "LAG3", "HAVCR2", "CD160",
+    "TOX", "NR4A1", "NR4A2", "NR4A3", "BATF", "ENTPD1"
+  ],
+
+  "regulatory_stress": [
+    "IL1RN", "FSTL3", "ARHGEF26", "SEC22C", "TRIM34",
+    "HSPA1A", "HSPA1B", "DDIT3", "ATF4", "XBP1"
+  ],
+
+  "migration_cytoskeleton": [
+    "RHOG", "RAC2", "DOCK2", "WAS", "ARPC1B",
+    "VAV1", "MSN", "LCP1", "TAGLN2", "CORO1A"
+  ],
+
+  "proliferation_cellcycle": [
+    "MKI67", "TOP2A", "PCNA", "CDK1", "CCNB1", "CCNB2",
+    "E2F1", "E2F2", "UBE2C", "BIRC5", "MCM2", "MCM4"
+  ],
+
+  "memory_homeostasis": [
+    "CCR7", "SELL", "IL7R", "TCF7", "LEF1", "LTB"
+  ],
+
+  "metabolic_programs": [
+    "HK2", "PFKFB3", "LDHA", "GAPDH", "PDK1",
+    "ATF5", "PPARGC1A"
+  ]
+}
