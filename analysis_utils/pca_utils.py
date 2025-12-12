@@ -310,4 +310,84 @@ def run_pca_and_save(
     loadings_df.to_csv(loadings_path)
     explained_df.to_csv(explained_path)
 
-    return scores_df, loadings_df, explained_df, pca
+
+    from pathlib import Path
+
+from pathlib import Path
+import pandas as pd
+
+def save_pca_results(
+    scores_df: pd.DataFrame,
+    loadings_df: pd.DataFrame,
+    explained_df: pd.DataFrame,
+    out_dir: Path,
+) -> None:
+    """
+    Save PCA outputs in a standardized way.
+
+    Parameters
+    ----------
+    scores_df : DataFrame
+        (n_samples, n_components)
+    loadings_df : DataFrame
+        (n_genes, n_components)
+    explained_df : DataFrame
+        PC, explained variance, explained variance ratio
+    out_dir : Path
+        Output directory for results.
+    """
+
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    scores_df.to_parquet(out_dir / "pca_scores.parquet")
+    loadings_df.to_parquet(out_dir / "pca_loadings.parquet")
+    explained_df.to_csv(out_dir / "pca_explained_variance.csv", index=False)
+
+import matplotlib.pyplot as plt
+
+def plot_pca_scatter(
+    scores_df: pd.DataFrame,
+    meta: pd.DataFrame,
+    pc_x: str = "PC5",
+    pc_y: str = "PC6",
+    color_by: str = "condition",
+    out_path: Path | None = None,
+    alpha: float = 0.7,
+    s: float = 20,
+):
+    """
+    Make a simple PCx vs PCy scatter colored by a metadata column.
+
+    Assumes scores_df.index aligns with meta.index.
+    """
+    # Align meta to scores_df
+    df = meta.join(scores_df, how="inner")
+
+    fig, ax = plt.subplots(figsize=(6, 5))
+
+    # Basic color-by-category scatter
+    groups = df[color_by].unique()
+    for g in groups:
+        sub = df[df[color_by] == g]
+        ax.scatter(
+            sub[pc_x],
+            sub[pc_y],
+            label=str(g),
+            alpha=alpha,
+            s=s,
+        )
+
+    ax.set_xlabel(pc_x)
+    ax.set_ylabel(pc_y)
+    ax.legend(title=color_by, bbox_to_anchor=(1.05, 1), loc="upper left")
+    ax.set_title(f"{pc_x} vs {pc_y} colored by {color_by}")
+    fig.tight_layout()
+
+    if out_path is not None:
+        out_path = Path(out_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(out_path, dpi=300)
+
+    return fig, ax
+
