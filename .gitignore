@@ -91,12 +91,30 @@ Icon?
 
 # Do NOT ignore results/ — figures, CSVs, PCA results,
 # quadrant classifiers, etc. should all remain tracked.
-# macOS
+# =====================
+# OS junk
+# =====================
 .DS_Store
 
+# =====================
 # Jupyter
+# =====================
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
-# Optional: logs
+# =====================
+# Python
+# =====================
+__pycache__/
+*.pyc
+
+# =====================
+# Logs
+# =====================
 jupyter.log
+
+# =====================
+# Temporary / editor files
+# =====================
+*.swp
+*.tmp
