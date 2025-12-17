@@ -118,3 +118,10 @@ jupyter.log
 # =====================
 *.swp
 *.tmp
+
+
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.log
+results/.DS_Store
