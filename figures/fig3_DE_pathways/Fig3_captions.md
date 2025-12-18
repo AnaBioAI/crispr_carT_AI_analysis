@@ -1,16 +1,24 @@
-## Figure 3. Differential expression and pathway programs underlying CAR-T activation
+C1. Differential gene expression between late and early CAR-T activation
+Volcano plot showing differential gene expression between late (≥168 h) and early (0 h) CAR-T activation states. Each point represents a gene, plotted by log2 fold change (late – early) and −log10(FDR-adjusted p-value). Vertical dashed lines indicate effect size thresholds (|log2FC| ≥ 0.5), and the horizontal dashed line indicates the significance threshold (FDR ≤ 0.2). Genes meeting both thresholds are highlighted, and the top differentially expressed genes are labeled by gene symbol. This analysis identifies coordinated transcriptional changes associated with CAR-T activation and maturation across the time course.
 
-### C1. Late vs Early activation volcano plot
-Volcano plot summarizing differential expression between late and early activation timepoints in CRISPR CAR-T samples. Each point is a gene (symbol-collapsed expression). The x-axis shows log2 fold-change (Late vs Early) and the y-axis shows –log10(FDR). Genes meeting the significance criteria (|log2FC| ≥ 0.5 and FDR ≤ 0.2) are highlighted (upregulated: red; downregulated: blue), while non-significant genes are shown in gray.
+C2. Hallmark pathway enrichment of activation-associated gene programs
+Bar plots showing Hallmark pathway enrichment derived from genes upregulated (top) and downregulated (bottom) in late versus early CAR-T activation. Differentially expressed genes were stratified by direction of change prior to enrichment analysis, enabling direction-aware interpretation of pathway activity. Late activation is characterized by enrichment of IL-2/STAT5 signaling, inflammatory response, interferon signaling, and metabolic programs, whereas pathways enriched among downregulated genes reflect attenuation of early activation–associated programs.
 
-### C2. Hallmark enrichment of late-activation upregulated genes
-Bar plot of MSigDB Hallmark pathway enrichment for genes upregulated in late vs early activation. Enrichment highlights core immune activation programs and pathway-level structure consistent with the dominant variance axes observed in PCA.
+C3. Alignment of transcriptional programs with principal components
+Heatmap showing correlations between Hallmark pathway module scores and the first two principal components (PC1 and PC2) derived from PCA of CAR-T transcriptomes. PC1 correlates with effector/activation programs (e.g., IL-2/STAT5 and inflammatory signaling) in opposition to interferon-biased programs. PC2 captures a proliferative/metabolic versus interferon-stress axis, reflecting E2F target and oxidative phosphorylation programs. This analysis links gene-level differential expression to low-dimensional activation trajectories.
 
-### C3. Hallmark enrichment of late-activation downregulated genes
-Bar plot of MSigDB Hallmark pathway enrichment for genes downregulated in late vs early activation, capturing programs reduced over the activation time course and complementing the late-upregulated signature.
+Generated from:
+	•	B01_late_vs_early_DE_and_pathways.ipynb (C1, C2)
+	•	A05_hallmark_pathways.ipynb (C2, C3)
 
-### C4. Alignment of pathway programs with principal components (optional panel)
-Heatmap of correlations between per-sample Hallmark module scores and principal component scores (PC1/PC2). This panel links gene set activity to the major transcriptional axes of variation, enabling mechanistic interpretation of low-dimensional trajectories.
+⸻
+
+If you run the UMAP export cell and confirm the three PNGs land in figures/fig2_activation_trajectories/, we can immediately write Fig 2D3 caption and “lock” Figure 2 fully (D1–D3) with zero loose ends.
+Outputs
+	•	Fig3C1_volcano_late_vs_early_labeled.png
+	•	Fig3C2_hallmark_barplot_UP.png
+	•	Fig3C2_hallmark_barplot_DOWN.png
+	•	Fig3C3_hallmark_PC_corr_heatmap.png
 
 <!--
 Generated from:

@@ -7,6 +7,9 @@ PCA projection of CAR-T samples into PC1–PC2 space reveals shared activation s
 ### D2. Hallmark pathway dynamics across activation
 Heatmap showing z-scored Hallmark pathway module scores across activation time (0–240 h), ordered by time and stratified by guide (SafeHarbor, S; RHOG, R). Each time point includes six biological replicates per condition. Shared temporal activation of key programs is observed across conditions, while RHOG modulates the relative intensity and timing of IL-2/STAT5 signaling, interferon responses, apoptosis, E2F targets, and oxidative phosphorylation, consistent with the trajectory differences observed in D1.
 
+### D3. Sample-level UMAP embeddings
+UMAP projection of CAR-T samples using highly variable genes. Samples are colored by activation time (hours), perturbation (RHOG vs SafeHarbor), and donor. The embedding provides a nonlinear view of global structure, supporting that RHOG modulates progression through shared activation programs while donor effects contribute separable variation.
+
 <!--
 Generated from:
 - D1: A01_crispr_cart_pca_summary.ipynb
