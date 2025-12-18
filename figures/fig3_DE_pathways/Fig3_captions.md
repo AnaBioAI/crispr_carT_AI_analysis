@@ -1,13 +1,16 @@
-## Figure 3. Differential expression and program-level enrichment during CAR-T activation
+## Figure 3. Differential expression and pathway programs underlying CAR-T activation
 
-### C1. Gene-level differential expression (Late vs Early)
-Volcano plot comparing late versus early activation states across CAR-T samples. Each point represents a gene (symbol-level logCPM). The x-axis shows log2 fold-change and the y-axis shows –log10(FDR). Labeled genes highlight the strongest program-shifting transcripts that distinguish activation stages.
+### C1. Late vs Early activation volcano plot
+Volcano plot summarizing differential expression between late and early activation timepoints in CRISPR CAR-T samples. Each point is a gene (symbol-collapsed expression). The x-axis shows log2 fold-change (Late vs Early) and the y-axis shows –log10(FDR). Genes meeting the significance criteria (|log2FC| ≥ 0.5 and FDR ≤ 0.2) are highlighted (upregulated: red; downregulated: blue), while non-significant genes are shown in gray.
 
-### C2. Hallmark pathway enrichment (Late vs Early)
-Hallmark pathway enrichment analysis (MSigDB) performed on direction-aware gene sets derived from the late vs early differential expression results. Barplots show the most significantly enriched Hallmark terms for upregulated (Late vs Early – UP) and downregulated (Late vs Early – DOWN) gene sets, reported as –log10(FDR).
+### C2. Hallmark enrichment of late-activation upregulated genes
+Bar plot of MSigDB Hallmark pathway enrichment for genes upregulated in late vs early activation. Enrichment highlights core immune activation programs and pathway-level structure consistent with the dominant variance axes observed in PCA.
 
-### C3. Program alignment with PCA axes (optional)
-Heatmap of correlations between per-sample Hallmark module scores and PCA coordinates (PC1 and PC2), linking dominant variance components to interpretable immune programs (e.g., IL-2/STAT5 / inflammatory activation versus interferon stress and proliferative E2F/OxPhos programs).
+### C3. Hallmark enrichment of late-activation downregulated genes
+Bar plot of MSigDB Hallmark pathway enrichment for genes downregulated in late vs early activation, capturing programs reduced over the activation time course and complementing the late-upregulated signature.
+
+### C4. Alignment of pathway programs with principal components (optional panel)
+Heatmap of correlations between per-sample Hallmark module scores and principal component scores (PC1/PC2). This panel links gene set activity to the major transcriptional axes of variation, enabling mechanistic interpretation of low-dimensional trajectories.
 
 <!--
 Generated from:
