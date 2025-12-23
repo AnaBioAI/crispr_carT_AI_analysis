@@ -1,10 +1,12 @@
-C1. Differential gene expression between late and early CAR-T activation
+###Figure 3. CAR-T activation is driven by coordinated, time-dependent transcriptional programs
+
+A. Differential gene expression between late and early CAR-T activation
 Volcano plot showing differential gene expression between late (≥168 h) and early (0 h) CAR-T activation states. Each point represents a gene, plotted by log2 fold change (late – early) and −log10(FDR-adjusted p-value). Vertical dashed lines indicate effect size thresholds (|log2FC| ≥ 0.5), and the horizontal dashed line indicates the significance threshold (FDR ≤ 0.2). Genes meeting both thresholds are highlighted, and the top differentially expressed genes are labeled by gene symbol. This analysis identifies coordinated transcriptional changes associated with CAR-T activation and maturation across the time course.
 
-C2. Hallmark pathway enrichment of activation-associated gene programs
+B. Hallmark pathway enrichment of activation-associated gene programs
 Bar plots showing Hallmark pathway enrichment derived from genes upregulated (top) and downregulated (bottom) in late versus early CAR-T activation. Differentially expressed genes were stratified by direction of change prior to enrichment analysis, enabling direction-aware interpretation of pathway activity. Late activation is characterized by enrichment of IL-2/STAT5 signaling, inflammatory response, interferon signaling, and metabolic programs, whereas pathways enriched among downregulated genes reflect attenuation of early activation–associated programs.
 
-C3. Alignment of transcriptional programs with principal components
+C. Alignment of transcriptional programs with principal components
 Heatmap showing correlations between Hallmark pathway module scores and the first two principal components (PC1 and PC2) derived from PCA of CAR-T transcriptomes. PC1 correlates with effector/activation programs (e.g., IL-2/STAT5 and inflammatory signaling) in opposition to interferon-biased programs. PC2 captures a proliferative/metabolic versus interferon-stress axis, reflecting E2F target and oxidative phosphorylation programs. This analysis links gene-level differential expression to low-dimensional activation trajectories.
 
 Generated from:
