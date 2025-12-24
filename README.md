@@ -43,3 +43,7 @@ That turns your CRISPR CAR-T analysis from “fragile notebook magic” into a r
 - A Makefile to standardize how you run things
 
 That’s pretty close to a 5-star computational lab. Next upgrade tier is when we start wiring CI (GitHub Actions) to auto-run unit tests on your utils and maybe generate nightly plots of CAR-T effector vs regulatory drifts.
+
+Data availability
+
+This repository contains processed expression matrices, curated metadata, and reference gene sets sufficient to reproduce all analyses and figures. Raw sequencing data are available from the original publication (Datlinger et al., 2025) and were not redistributed here.
