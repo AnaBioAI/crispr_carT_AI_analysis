@@ -137,3 +137,5 @@ data/raw/
 *.tar.gz
 *.docx
 ~$*.docx
+~$*.docx
+*.pptx
