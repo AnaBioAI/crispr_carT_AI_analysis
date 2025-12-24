@@ -135,3 +135,5 @@ data/raw/
 *.sam
 *.fq
 *.tar.gz
+*.docx
+~$*.docx
