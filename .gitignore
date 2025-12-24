@@ -125,3 +125,13 @@ jupyter.log
 __pycache__/
 *.log
 results/.DS_Store
+
+# =====================
+# Raw or large data
+# =====================
+data/raw/
+*.fastq
+*.bam
+*.sam
+*.fq
+*.tar.gz
