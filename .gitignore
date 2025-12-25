@@ -22,7 +22,7 @@ __pycache__/
 # Virtual environment folders
 env/
 venv/
-.crispr_carT_env/
+
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -119,11 +119,6 @@ jupyter.log
 *.swp
 *.tmp
 
-
-.DS_Store
-.ipynb_checkpoints/
-__pycache__/
-*.log
 results/.DS_Store
 
 # =====================
@@ -135,7 +130,10 @@ data/raw/
 *.sam
 *.fq
 *.tar.gz
+
+# =====================
+# Office files (manuscripts and intermediate figure assembly)
+# =====================
 *.docx
-~$*.docx
 ~$*.docx
 *.pptx
