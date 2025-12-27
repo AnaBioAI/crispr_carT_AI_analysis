@@ -1,21 +1,18 @@
+Figure 2. Conserved activation trajectories and program-level modulation in CAR T cells.
+Principal component analysis (PCA) of CAR T cell transcriptomes projected into PC1–PC2 space reveals a shared activation trajectory across SafeHarbor control and RHOG-perturbed cells (A). PC1 captures a dominant effector activation axis enriched for IL-2/STAT5, NFκB, and inflammatory signaling, opposing interferon-associated activation states, while PC2 reflects an interferon-stress versus proliferative and metabolic program enriched for E2F targets and oxidative phosphorylation. Time-ordered centroids connected across activation show that both perturbations traverse identical biological regions of transcriptional space, indicating conserved activation states, while subtle differences in trajectory shape and progression are observed for RHOG-perturbed cells. Genes contributing most strongly to PC1 include IL2, IFNG, CSF2, IL1B, and inflammatory chemokines (CXCL8, CXCL10, CCL2), supporting interpretation of this axis as effector cytokine and inflammatory activation amplitude rather than lineage or memory differentiation.
 
-## Figure 2. Activation trajectories and program modulation in CAR-T cells
+Program-level dynamics across activation are shown by a heatmap of z-scored Hallmark pathway scores ordered by time and stratified by guide (B). Each activation time point includes six biological replicates per condition. Shared temporal induction of key activation programs is observed across both conditions, while RHOG perturbation modulates the relative timing and magnitude of IL-2/STAT5 signaling, interferon responses, apoptosis, E2F targets, and oxidative phosphorylation, consistent with the trajectory-level differences observed in PCA.
 
-### A. PCA trajectory analysis
-PCA projection of CAR-T samples into PC1–PC2 space reveals shared activation states across SafeHarbor and RHOG perturbations. PC1 captures an effector IL-2/STAT5/NFκB activation axis opposing interferon-driven activation, while PC2 reflects an interferon-stress versus proliferative E2F/OxPhos program. Arrows connect time-ordered centroids for each guide (SafeHarbor, blue; RHOG, orange). Both conditions traverse identical biological quadrants, indicating conserved activation states; however, RHOG perturbation alters the shape and progression of the activation trajectory.**Genes contributing most strongly to PC1 include IL2, IFNG, CSF2, IL1B, and inflammatory chemokines (CXCL8, CXCL10, CCL2), indicating that this axis reflects effector cytokine and inflammatory activation amplitude rather than lineage or memory differentiation.
+Nonlinear sample relationships visualized by Uniform Manifold Approximation and Projection (UMAP) further support conserved activation structure (C). Samples cluster primarily by activation time, with minimal segregation by perturbation, while donor-associated variation contributes orthogonal structure. Together, these analyses indicate that RHOG perturbation biases progression within a shared CAR T cell activation landscape rather than inducing discrete transcriptional states.
+-
+-Outputs:
+-- results/pca/PCA_biological_interpretation_PC1_PC2.png
+-- results/pathways/hallmark_module_scores_heatmap.png
 
-### B. Hallmark pathway dynamics across activation
-Heatmap showing z-scored Hallmark pathway module scores across activation time (0–240 h), ordered by time and stratified by guide (SafeHarbor, S; RHOG, R). Each time point includes six biological replicates per condition. Shared temporal activation of key programs is observed across conditions, while RHOG modulates the relative intensity and timing of IL-2/STAT5 signaling, interferon responses, apoptosis, E2F targets, and oxidative phosphorylation, consistent with the trajectory differences observed in D1.
 
-### C. Sample-level UMAP embeddings
-UMAP projection of CAR-T samples using highly variable genes. Samples are colored by activation time (hours), perturbation (RHOG vs SafeHarbor), and donor. The embedding provides a nonlinear view of global structure, supporting that RHOG modulates progression through shared activation programs while donor effects contribute separable variation.
-
-<!--
-Generated from:
-- D1: A01_crispr_cart_pca_summary.ipynb
-- D2: A05_hallmark_pathways.ipynb
-
-Outputs:
-- results/pca/PCA_biological_interpretation_PC1_PC2.png
-- results/pathways/hallmark_module_scores_heatmap.png
--->
+-- D1: A01_crispr_cart_pca_summary.ipynb
+-- D2: A05_hallmark_pathways.ipynb
+-
+-Outputs:
+-- results/pca/PCA_biological_interpretation_PC1_PC2.png
+-- results/pathways/hallmark_module_scores_heatmap.png

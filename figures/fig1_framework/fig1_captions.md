@@ -1,15 +1,5 @@
-Figure 1. CRISPR CAR-T perturbation analysis pipeline
-
-A. Data acquisition and preprocessing.
-Raw CRISPR CAR-T RNA-seq counts and sample metadata (donor, guide, activation time) are processed through standardized normalization (logCPM/log1p), ENSEMBL-to-gene-symbol harmonization, and duplicate symbol collapsing to generate canonical, reusable expression matrices.
-
-B. Dimensionality reduction.
-Symbol-level normalized expression is analyzed using principal component analysis (PCA) to decompose variance and enable biological interpretation of activation trajectories, and UMAP to visualize nonlinear sample structure while preserving local relationships. PCA scores, loadings, and UMAP coordinates are saved for downstream reuse.
-
-C. Differential expression and pathway integration.
-Linear modeling identifies gene-level differences across activation time and perturbation conditions. Differentially expressed genes are organized into direction-aware gene sets and integrated with Hallmark pathway enrichment to support program-level interpretation and alignment with PCA axes.
-
-All intermediate and final outputs are saved with stable filenames, enabling reproducible figure generation and downstream trajectory analyses.
+Figure 1. A scalable computational framework for CRISPR–CAR T cell activation analysis.
+Raw CRISPR–CAR T cell RNA-seq counts and associated sample metadata (donor, guide, activation time) were processed through a standardized preprocessing pipeline, including log-transformed normalization, ENSEMBL-to-gene-symbol harmonization, and collapsing of duplicated symbols to generate canonical, reusable expression matrices (A). Symbol-level normalized expression data were analyzed using principal component analysis (PCA) to decompose dominant sources of transcriptional variance and enable biological interpretation of activation trajectories, alongside Uniform Manifold Approximation and Projection (UMAP) for nonlinear visualization of sample structure while preserving local relationships (B). Gene-level differences across activation time and perturbation conditions were assessed using differential expression analysis, and direction-aware gene sets were integrated with Hallmark pathway enrichment to support program-level interpretation and alignment with principal component axes (C). All intermediate and final outputs were saved with standardized naming and directory structure to enable reproducible downstream analyses and figure generation.
 
 ⸻
 
