@@ -137,3 +137,10 @@ data/raw/
 *.docx
 ~$*.docx
 *.pptx
+
+# =====================
+# Accidental duplicate exports
+# =====================
+*..png
+*.2.png
+results/**.png
